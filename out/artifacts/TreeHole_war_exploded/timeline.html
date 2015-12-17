@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="/js/libs/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="/js/libs/storyjs-embed.js"></script>
+    <script type="text/javascript" src="/js/common.util.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/common.style.css">
+    <link rel="stylesheet" type="text/css" href="/css/moodPoster.util.css">
+    <link rel="stylesheet" type="text/css" href="/css/mytimeline.css">
+    <link rel="stylesheet" type="text/css" href="/css/timeline-ui.css">
+
+</head>
+<body>
+<div id="header">
+    <div class="title">树洞</div>
+    <div class="header-ctrl">
+        <li class="header-item"><a href="/index.html">首页</a></li>
+        <li class="header-item"><a href="/publicArea.html">发现</a></li>
+        <li class="header-item nav-active"><a href="">纪念册</a></li>
+    </div>
+</div>
+<div id="timeline">
+    <div id="my-timeline"></div>
+</div>
+<div class="mood-poster-show" id="mood-poster-show">
+    <a href="javascript:hideDialog()" class="ui-dialog-title-closebutton"></a>
+    <div class="mood-poster-browse-ui mood-poster-timeline-ui" id="mood_poster_module">
+
+    </div>
+</div>
+<div class="ui-mask" id="mask" onselectstart="return false">
+</div>
+<!-- 模版区域 -->
+<div style="display: none">
+    <!--浏览说说模块模版，包括说说与页面-->
+    <div id="tpl_mood_poster">
+        <li class="mood-poster-item-ui">
+            <div class="mood-poster-item-head">
+                <div class="poster-user-photo">
+                    {{img_mood_poster_user_photo}}
+                </div>
+                <div class="poster-inform">
+                    <p><a href="" style="color:#000">{{mood_poster_user_name}}</a></p>
+
+                    <p>
+                        <span class="poster-time">{{mood_poster_time}}</span>
+                        <span class="poster-view"><i class="glyphicon glyphicon-eye-open"></i>浏览({{mood_poster_total_view}})</span>
+                    </p>
+                </div>
+            </div>
+            <div class="mood-poster-item-middle">
+                <div class="mood-poster-item-content">
+                    {{mood_poster_content}}
+                </div>
+                <div class="mood-poster-item-image">
+                    {{mood_poster_picture_list}}
+                </div>
+            </div>
+            <div class="mood-poster-item-foot">
+                <div class="mood-poster-item-foot-ctrlgroup">
+                    <!-- TODO:完成收藏等后台action以及点过之后图片变化 -->
+                    <a href="javascript:;" class="mood-poster-item-foot-ctrl" data-mid="{{mood_poster_id}}"
+                       data-isLike="{{current_user_like}}" data-action="like">
+                        <i class="mood-poster-ui-icon mood-poster-praise-icon"></i>
+                        <span class="like-content">赞</span>
+                        <span class="like-count">{{like_count}}</span>
+                    </a>
+                    <span class="item-line"></span>
+                    <a href="javascript:dropFromTimeline({{mood_poster_id}});" class="mood-poster-item-foot-ctrl">
+                        <i class="mood-poster-ui-icon mood-poster-timeline-icon"></i>
+                        <span>移除时间轴</span>
+                    </a>
+                </div>
+                <!-- 评论区域 -->
+                <div class="mood-poster-item-comment-list">
+                    {{mood_poster_comment_list}}
+                </div>
+                <!-- 发表评论区域 -->
+                <div class="mood-poster-comment-ui">
+                    <textarea class="" rows="1" placeholder="说两句吧" data-mid="{{mood_poster_id}}"></textarea>
+
+                    <div class="mood-poster-publish-item hide">
+                        <div class="left-item left">
+                            <i class="btn-icon-ui btn-emoji-ui"></i>
+                            <i class="btn-icon-ui btn-at-ui"></i>
+                            <!-- TODO:2.缺少一个样式 -->
+                            <i class="btn--ui"></i>
+                        </div>
+                        <div class="btn right-item right btn-comment">
+                            发表
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </div>
+    <!-- 评论部分模版 -->
+    <div id="tpl_mood_poster_comment">
+        <div class="{{class_ui_by_role}}" data-role="{{data_role}}" data-parentId="{{parent_id}}">
+            <!--<img src="{{commenter_photo}}">-->
+            {{img_commenter_photo}}
+
+            <div class="mood-poster-comment-item-content">
+                <p class="comment-content"><a href="javascript:;">{{commenter_name}}:</a>{{comment_content}}</p>
+
+                <p>
+                    <span class="poster-time">{{comment_time}}</span>
+                    <a href="javascript:;" class="mood-poster-ui-icon comment-reply-icon" data-role="reply"
+                       data-cid="{{comment_id}}">
+                        <b class="hide-clip">回复
+                            <b class="arrow-down"></b>
+                        </b>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/timelineData.js"></script>
+<script type="text/javascript" src="/js/personalTimeline.js"></script>
+</body>
+</html>

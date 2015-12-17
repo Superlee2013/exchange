@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/common.style.css">
+    <script type="text/javascript" src="/js/common.util.js"></script>
+    <title></title>
+    <style>
+        .hide-clip {
+            background-color: rgba(0, 0, 0, .7);
+            position: absolute;
+            text-align: center;
+            width: 40px;
+            height: 22px;
+            font-size: 10px;
+            color: #fff;
+            line-height: 22px;
+            left: -10px;
+            top: -25px;
+            display: none;
+            border-radius: 3px;
+        }
+
+        .arrow-down {
+            width: 0px;
+            height: 0px;
+            border: 5px;
+            border-bottom: 0px;
+            border-color: rgba(0, 0, 0, .7) transparent transparent transparent;
+            border-style: solid;
+            position: absolute;
+            left: 35%;
+            bottom: -5px;
+        }
+    </style>
+</head>
+<body>
+<!--提示框-->
+<div class="me-tipbox-ui" id="me-tipbox"></div>
+<!--悬浮框回复-->
+<div>
+    <b class="hide-clip">回复
+        <b class="arrow-down"></b>
+    </b>
+</div>
+<!--弹出窗口-->
+<div class="ui-dialog" id="dialog">
+    <div class="ui-dialog-title" id="dialog-title">
+        邮箱验证
+        <a href="javascript:hideDialog()" class="ui-dialog-title-closebutton"></a>
+    </div>
+    <div class="ui-dialog-content">
+        <p>我们已经向您注册的邮箱中发送了验证码，请查看并在下面输入框中输入</p>
+
+        <div class="login_index_form_group">
+            <input type="text" name="identifyCode" placeholder="请输入六位数验证码"/>
+        </div>
+        <div style="color:#747474;font-size:12px;text-indent:2em;margin-bottom: 20px;">
+            如果您的邮箱中没有验证邮件，请检查是否存在垃圾箱中，或者检查邮件地址是否是您本人的邮箱
+        </div>
+        <div>
+            <a class="ui-dialog-submit" href="javascript:checkIndentifyCode()">确定</a>
+        </div>
+    </div>
+</div>
+<!--遮罩窗口-->
+<div class="ui-mask" id="mask" onselectstart="return false">
+</div>
+</body>
+</html>

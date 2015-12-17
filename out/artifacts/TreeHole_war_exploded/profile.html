@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/libs/jquery.fullpage.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.style.css">
+    <link rel="stylesheet" type="text/css" href="/css/laydate.css">
+    <link rel="stylesheet" type="text/css" href="/css/profile.css">
+    <script type="text/javascript" src="/js/laydate.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery.fullpage.min.js"></script>
+    <script type="text/javascript" src="/js/libs/cityData.js"></script>
+    <script type="text/javascript" src="/js/common.util.js"></script>
+</head>
+<body>
+<div class="me-tipbox-ui" id="me-tipbox"></div>
+<div id="header">
+    <div class="title">树洞</div>
+    <div class="header-ctrl">
+        <li class="header-item"><a href="/index.html">首页</a></li>
+        <li class="header-item"><a href="/publicArea.html">发现</a></li>
+        <li class="header-item nav-active"><a href="">个人信息</a></li>
+    </div>
+</div>
+<div id="main">
+    <div class="left">
+        <ul class="wrap-boxes" id="menu">
+            <li class="active" data-menuanchor="firstPage">
+                <a href="#firstPage">个人资料</a>
+            </li>
+            <li data-menuanchor="secondPage">
+                <a href="#secondPage">头像设置</a>
+            </li>
+            <li data-menuanchor="3rdPage">
+                <a href="#3rdPage">修改密码</a>
+            </li>
+            <li data-menuanchor="4thPage">
+                <a href="#4thPage">邮箱验证</a>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div id="fullpage">
+            <div class="section" id="section0">
+                <form action="" id="profile">
+                    <div class="profile-item clear-float">
+                        <label class="label-name">昵称</label>
+                        <input type="text" name="nickname" placeholder="请输入昵称." class="nickname">
+                    </div>
+                    <div class="profile-item clear-float">
+                        <label class="label-name">城市</label>
+                        <select id="province-select" hidefocus="true" name="province">
+                            <option value="0">选择省份</option>
+                        </select>
+                        <select id="city-select" hidefocus="true" name="city">
+                            <option value="0">选择城市</option>
+                        </select>
+                        <select id="area-select" hidefocus="true" name="area">
+                            <option value="0">选择区县</option>
+                        </select>
+                    </div>
+                    <div class="profile-item clear-float">
+                        <label class="label-name">生日</label>
+                        <input type="text" name="birthday" onclick="laydate()">
+                    </div>
+                    <div class="profile-item clear-float">
+                        <label class="label-name">性别</label>
+                        <label class="sex"><input type="radio" hidefocus="true" value="1" checked="checked" name="sex">男</label>
+                        <label class="sex"><input type="radio" hidefocus="true" value="2" name="sex">女</label>
+                    </div>
+                    <div class="profile-item clear-float">
+                        <label class="label-name">个性签名</label>
+                        <textarea name="signature" cols="30" rows="5" class="textarea"></textarea>
+                    </div>
+                    <div>
+                        <input type="button" value="保存" class="btn btn-save" onclick="updateProfile()">
+                    </div>
+                </form>
+            </div>
+            <div class="section" id="section1">
+                <div class="photo-view">
+                    <img src="">
+
+                    <p><i class="icon-change"></i>换一换</p>
+                </div>
+                <div class="photo-ctrl">
+                    <div class="upload-btn" id="upload-btn">上传头像</div>
+                    <input type="file" style="display:none" id="user-photo">
+                </div>
+            </div>
+            <div class="section" id="section2">
+                <form id="set-password" class="set-password">
+                    <div class="profile-item clear-float">
+                        <label class="label-name">当前密码</label>
+                        <input type="password" name="old_password" placeholder="请输入当前密码" onblur="checkPassword()">
+                    </div>
+                    <div class="profile-item clear-float">
+                        <label class="label-name">新密码</label>
+                        <input type="password" name="new_password" placeholder="请输入新密码">
+                    </div>
+                    <div class="profile-item clear-float">
+                        <label class="label-name">确认密码</label>
+                        <input type="password" name="confirm_password" placeholder="请输入确认密码">
+                    </div>
+                    <input type="button" value="确认修改" class="btn btn-save" onclick="changePassword()">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+
+<script type="text/javascript" src="/js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+#header {
+    height: 50px;
+    display: block;
+    width: 100%;
+    background: #333;
+    z-index: 9999;
+    text-align: center;
+    color: #f2f2f2;
+    position: fixed;
+    top:0px;
+    opacity: 0;
+    transition: all 0.8s;
+    overflow: hidden;
+}
+
+#header:hover{
+    opacity: 1;
+}
+
+/*header部分样式*/
+#header div{
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+}
+
+#header .title{
+    color:#9d9d9d;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 130px;
+}
+
+#header .title:hover{
+    color:#fff;
+}
+
+.header-ctrl{
+    margin-left: 10px;
+}
+
+.header-ctrl .header-item{
+    list-style: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 70px;
+    height: 50px;
+}
+
+.header-ctrl .header-item a{
+    color:#9d9d9d;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: arial, 'Microsoft YaHei', tahoma, '\5b8b\4f53', 'Hiragino Sans GB', sans-serif;
+    outline: none;
+}
+
+.header-ctrl .header-item:hover a{
+    color:#fff;
+}
+
+.header-ctrl .nav-active{
+    background-color: #000;
+}
+
+/*时间轴心情浏览*/
+.mood-poster-show{
+    width: 50%;
+    height: 80%;
+    position: fixed;
+    z-index: 9998;
+    top: 55px;
+    left: 25%;
+    display: none;
+
+}
+
+.mood-poster-timeline-ui{
+    height: 70%;
+    overflow-y: auto;
+}
+
+a{
+    color: #337ab7;
+    text-decoration: none;
+}
